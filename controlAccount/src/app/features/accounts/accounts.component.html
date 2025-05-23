@@ -1,1 +1,16 @@
-<p>accounts works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let list of listOfAccounts">
+      <td>{{ list.id }}</td>
+      <td>{{ list.name }}</td>
+      <td>{{ list.status }}</td>
+    </tr>
+  </tbody>
+</table>
