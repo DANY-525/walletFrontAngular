@@ -7,6 +7,6 @@ import { VehiclesComponent } from './features/vehicles/components/vehicles/vehic
 export const routes: Routes = [
   { path: 'account', component: AccountsComponent },
   { path: 'vehicles', component: VehiclesComponent },
-  { path: '', redirectTo: '/account', pathMatch: 'full' }, // optional: redirect root to /users
+  { path: '', redirectTo: '/vehicles', pathMatch: 'full' }, // optional: redirect root to /users
   { path: '**', redirectTo: '/users' } // optional: wildcard fallback
 ];

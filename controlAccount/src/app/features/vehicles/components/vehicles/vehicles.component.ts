@@ -41,7 +41,7 @@ export class VehiclesComponent {
 
       this.productList.push(this.mockProduct);
 
-      this.vehicleList.push(this.mockVehicle);
+    //  this.vehicleList.push(this.mockVehicle);
 
     }
 
