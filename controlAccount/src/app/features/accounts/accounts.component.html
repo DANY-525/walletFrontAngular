@@ -1,16 +1,43 @@
-<table>
+ <button  (click)="addAccount()">Add Account</button>
+
+ <table>
   <thead>
     <tr>
       <th>Id</th>
       <th>Name</th>
       <th>Status</th>
+      <th>Type</th>
+      <th>Value</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let list of listOfAccounts">
       <td>{{ list.id }}</td>
       <td>{{ list.name }}</td>
+      <td>{{ list.type }}</td>
       <td>{{ list.status }}</td>
+      <td>{{ list.value }}</td>
+   
     </tr>
   </tbody>
+
+  <div   *ngIf="addForm" >
+    <form #form="ngForm" (ngSubmit)="submitForm()" >
+      <input name="name" [(ngModel)]="account.name" required />
+      
+      <input type="number" name="value" [(ngModel)]="account.value" placeholder="value" required />
+      
+      <input type="number" name="type" [(ngModel)]="account.type" placeholder="type" />  <input>
+      
+      <input type="checkbox" name="status" [(ngModel)]="account.status" placeholder="status" /> 
+      
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
+
+
+
+
 </table>
