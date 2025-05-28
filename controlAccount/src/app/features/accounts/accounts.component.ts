@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms'; // ✅ importa esto
 export class AccountsComponent {
 
   listOfAccounts:Account[] =[];
+  activeForm:boolean = false;
   addForm:boolean = false;
+  editForm:boolean = false;
   account:Account={
     id:0,
     name:"",
@@ -22,20 +24,57 @@ export class AccountsComponent {
   }
 
   ngOnInit(){
-
+        
   }
 
   addAccount(){
-    this.addForm = true;
-    //   this.listOfAccounts.push(account);
+     this.addForm = true;
+  // Reinicia el objeto `account` por si ya había sido usado antes
+  this.account = {
+    id: this.listOfAccounts.length + 1,
+    name: "",
+    status: false,
+    type: 0,
+    value: 0
+  };
   }
 
-
+  deleteAccount(account: Account) {
+    this.listOfAccounts = this.listOfAccounts.filter(a => a !== account);
+  }
+  editAccount(account: Account) {
+    this.editForm = true;
+    this.account = { ...account }; // Clona el objeto sin modificar el id
+  }
 
   submitForm(){
-
-    console.log("entre");
+    this.listOfAccounts.push({ ...this.account }); // usa copia para evitar referencias
+    this.addForm = false;
+    this.account = {
+      id: this.listOfAccounts.length + 1,
+      name: "",
+      status: false,
+      type: 0,
+      value: 0
+    };
   }
+
+    updateForm(){
+        const index = this.listOfAccounts.findIndex(a => a.id === this.account.id);
+        if (index !== -1) {
+           this.listOfAccounts[index] = { ...this.account }; // actualiza el objeto
+        }
+        this.editForm = false;
+        this.account = {
+          id: 0,
+          name: "",
+          status: false,
+          type: 0,
+          value: 0
+        };
+
+    }
+
 
 
 

@@ -1,43 +1,67 @@
- <button  (click)="addAccount()">Add Account</button>
+<section>
+  <button (click)="addAccount()">Add Account</button>
 
- <table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Status</th>
-      <th>Type</th>
-      <th>Value</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let list of listOfAccounts">
-      <td>{{ list.id }}</td>
-      <td>{{ list.name }}</td>
-      <td>{{ list.type }}</td>
-      <td>{{ list.status }}</td>
-      <td>{{ list.value }}</td>
-   
-    </tr>
-  </tbody>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Type</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of listOfAccounts">
+        <td>{{ account.id }}</td>
+        <td>{{ account.name }}</td>
+        <td>{{ account.status }}</td>
+        <td>{{ account.type }}</td>
+        <td>{{ account.value }}</td>
+           <td><button (click)="editAccount(account)">Edit</button> <button (click)="deleteAccount(account)">Delete</button> </td>
+          
+       
+      </tr>
+    </tbody>
+  </table>
 
-  <div   *ngIf="addForm" >
-    <form #form="ngForm" (ngSubmit)="submitForm()" >
+  <aside *ngIf="addForm">
+    <form #form="ngForm" (ngSubmit)="submitForm()">
+      <label for="name">Nombre</label>
       <input name="name" [(ngModel)]="account.name" required />
-      
+
+      <label for="value">Valor</label>
       <input type="number" name="value" [(ngModel)]="account.value" placeholder="value" required />
-      
-      <input type="number" name="type" [(ngModel)]="account.type" placeholder="type" />  <input>
-      
-      <input type="checkbox" name="status" [(ngModel)]="account.status" placeholder="status" /> 
-      
+
+      <label for="type">Tipo de cuenta</label>
+      <input type="number" name="type" [(ngModel)]="account.type" placeholder="type" />
+
+      <label for="status">Activo</label>
+      <input type="checkbox" name="status" [(ngModel)]="account.status" />
+
       <button type="submit">Submit</button>
     </form>
+  </aside>
 
-  </div>
+    <aside *ngIf="editForm">
+    <form #form="ngForm" (ngSubmit)="updateForm()">
+      <label for="name">Nombre</label>
+      <input name="name" [(ngModel)]="account.name" required />
+
+      <label for="value">Valor</label>
+      <input type="number" name="value" [(ngModel)]="account.value" placeholder="value" required />
+
+      <label for="type">Tipo de cuenta</label>
+      <input type="number" name="type" [(ngModel)]="account.type" placeholder="type" />
+
+      <label for="status">Activo</label>
+      <input type="checkbox" name="status" [(ngModel)]="account.status" />
+
+      <button type="submit">Submit</button>
+    </form>
+  </aside>
 
 
 
-
-</table>
+</section>
