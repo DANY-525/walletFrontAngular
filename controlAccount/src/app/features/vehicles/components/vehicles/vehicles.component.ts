@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { vehicle } from '../../models/vehicles';
 import { Product } from '../../models/products';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-vehicles',
   standalone: true, // 
-  imports: [],
+    imports: [CommonModule,FormsModule], 
   templateUrl: './vehicles.component.html',
   styleUrl: './vehicles.component.css'
 })
@@ -14,12 +16,12 @@ import { Product } from '../../models/products';
 
 export class VehiclesComponent {
 
-    productList:Product[] =[];
+    lisOfProducts:Product[] =[];
     mockProduct:Product ={
       category:1,
       id:1,
-      name:"",
-      price:0
+      name:"dfadfasd",
+      price:15150505
     }
 
    vehicleList:vehicle[] = [];
@@ -39,10 +41,16 @@ export class VehiclesComponent {
 
     ngOnInit(){
 
-      this.productList.push(this.mockProduct);
+      this.lisOfProducts.push(this.mockProduct);
+     
 
     //  this.vehicleList.push(this.mockVehicle);
 
+    }
+
+    submitEvent(){
+
+      
     }
 
 

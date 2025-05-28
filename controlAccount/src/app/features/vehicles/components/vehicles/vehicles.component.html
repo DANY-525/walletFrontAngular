@@ -1,15 +1,37 @@
+<section>
 <table>
-    <thead>
-        <td>id</td>
-        <td>name</td>
-        <td>price</td>
-        <td>category</td>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product  of productList">
-            <td>{{product.category}}</td>
-            <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>price</th>
+      <th>category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of lisOfProducts">
+     
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.category}}</td>
+    </tr>
+  </tbody>
 </table>
+</section>
+<section class="sectionForm">
+
+    <form  >
+        <label for="price">Price</label>
+         <input type="number" name="price" id="">
+         <label for="name">nombre</label>
+         <input type="text" name="name" id="">
+           <label for="price">precio</label>
+            <input type="number" name="price" id="">
+            
+           <label for="category">category</label>
+            <input type="category" name="category" id="">
+            <input type="submit">
+
+    </form>
+</section>
