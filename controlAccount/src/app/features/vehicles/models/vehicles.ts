@@ -1,13 +1,14 @@
 export interface vehicle{
      vehicleid:number,
-     ownerid:number,
+     owner_id:number,
      brand:number,
      model:number,
      year:Date,
-     platenumber:number,
+     plate_number:number,
      vin:number,
-     enginetype:string,
+     color:string,
+     engine_type:string,
      mileage:number,
      created_at:Date,
-     udpate:Date
+     udpate_at:Date
 }
