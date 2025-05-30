@@ -39,53 +39,22 @@
     </tbody>
   </table>
 
-  <!-- Modal para Add/Edit -->
-  <div class="modal-backdrop" *ngIf="addForm || editForm">
-    <div class="modal">
-      <form #form="ngForm" (ngSubmit)="addForm ? submitForm() : updateForm()" class="account-form">
-        <h3>{{ addForm ? 'Add Vehicle' : 'Edit Vehicle' }}</h3>
+  <aside *ngIf="addForm || editForm" class="form-wrapper">
+    <form #form="ngForm" (ngSubmit)="addForm ? submitForm() : updateForm()" class="account-form">
+      <h3>{{ addForm ? 'Add Vehicle' : 'Edit Vehicle' }}</h3>
 
-        <label>Owner ID:
-          <input [(ngModel)]="vehicle.owner_id" name="owner_id" required>
-        </label>
+      <label>Owner ID: <input [(ngModel)]="vehicle.owner_id" name="owner_id" required></label>
+      <label>Brand: <input [(ngModel)]="vehicle.brand" name="brand" required></label>
+      <label>Model: <input [(ngModel)]="vehicle.model" name="model" required></label>
+      <label>Year: <input type="date" [(ngModel)]="vehicle.year" name="year" required></label>
+      <label>Plate #: <input [(ngModel)]="vehicle.plate_number" name="plate_number" required></label>
+      <label>VIN: <input [(ngModel)]="vehicle.vin" name="vin" required></label>
+      <label>Color: <input [(ngModel)]="vehicle.color" name="color" required></label>
+      <label>Engine Type: <input [(ngModel)]="vehicle.engine_type" name="engine_type" required></label>
+      <label>Mileage: <input [(ngModel)]="vehicle.mileage" name="mileage" required></label>
 
-        <label>Brand:
-          <input [(ngModel)]="vehicle.brand" name="brand" required>
-        </label>
-
-        <label>Model:
-          <input [(ngModel)]="vehicle.model" name="model" required>
-        </label>
-
-        <label>Year:
-          <input type="date" [(ngModel)]="vehicle.year" name="year" required>
-        </label>
-
-        <label>Plate #:
-          <input [(ngModel)]="vehicle.plate_number" name="plate_number" required>
-        </label>
-
-        <label>VIN:
-          <input [(ngModel)]="vehicle.vin" name="vin" required>
-        </label>
-
-        <label>Color:
-          <input [(ngModel)]="vehicle.color" name="color" required>
-        </label>
-
-        <label>Engine Type:
-          <input [(ngModel)]="vehicle.engine_type" name="engine_type" required>
-        </label>
-
-        <label>Mileage:
-          <input [(ngModel)]="vehicle.mileage" name="mileage" required>
-        </label>
-
-        <div class="modal-buttons">
-          <button type="submit">{{ addForm ? 'Add' : 'Update' }}</button>
-          <button type="button" (click)="cancelForm()">Cancel</button>
-        </div>
-      </form>
-    </div>
-  </div>
+      <button type="submit">{{ addForm ? 'Add' : 'Update' }}</button>
+      <button type="button" (click)="cancelForm()">Cancel</button>
+    </form>
+  </aside>
 </section>
