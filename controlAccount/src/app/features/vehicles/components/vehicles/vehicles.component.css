@@ -109,6 +109,32 @@ th {
   background-color: #218838;
 }
 
+.error {
+  color: #d32f2f;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid #d32f2f;
+}
+
+input.ng-valid.ng-touched {
+  border: 1px solid #388e3c;
+}
+
+.account-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.modal-buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
